@@ -8,9 +8,64 @@ class AccountPage extends React.Component {
             name: "John Smith",
             cals: 1000,
             calLimit: 2000,
-			diet: "Paleo"
+			diet: "Paleo",
+            foodEaten: []
 		};
+        this.getMacrosFromName = this.getMacrosFromName.bind(this);
 	}
+    
+    getMacrosFromName(food) {
+         var foodJson = JSON.parse(JSON.stringify({
+            "Pizza":
+            {
+                "Energy": "277 kcal",
+                "Protein": "10.97 g",
+                "Total lipid (fat)": "11.61 g",
+                "Carbohydrate, by difference" :  "29.68	g",
+                "Fiber, total dietary": "0.6 g"
+            },
+
+            "Caesar Salad":
+            {
+                "Energy": "189 kcal",
+                "Protein": "5.91 g",
+                "Total lipid (fat)": "15.75 g",
+                "Carbohydrate, by difference" :  "7.48	g",
+                "Fiber, total dietary": "2 g"
+            },
+
+            "Chicken Wings":
+            {
+                "Energy": "283 kcal",
+                "Protein": "18.58 g",
+                "Total lipid (fat)": "18.58 g",
+                "Carbohydrate, by difference" :  "0	g",
+                "Fiber, total dietary": "0 g"
+            },
+            "Donut":
+            {
+                "Energy": "324 kcal",
+                "Protein": "5.63 g",
+                "Total lipid (fat)": "11.27 g",
+                "Carbohydrate, by difference" :  "53.52	g",
+                "Fiber, total dietary": "1.4 g"
+            },
+            "Fried Rice":
+            {
+                "Energy": "170 kcal",
+                "Protein": "7.69 g",
+                "Total lipid (fat)": "3.21 g",
+                "Carbohydrate, by difference" :  "27.24	g",
+                "Fiber, total dietary": "1 g"
+            }
+        }));
+        var macrosObject = new Object();
+        macrosObject.protein = foodJson[food]["Protein"];
+        macrosObject.fat = foodJson[food]["Total lipid (fat)"];
+        macrosObject.carbs = foodJson[food]["Carbohydrate, by difference"];
+        macrosObject.fiber = foodJson[food]["Fiber, total dietary"];
+        return macrosObject;
+    }
     
     componentDidMount() {
         var userId = "User001";
@@ -54,6 +109,20 @@ class AccountPage extends React.Component {
                 calLimit: calLimit
             });
         });
+
+        fetch("http://nutriscan.appspot.com/get-food-consumed", {
+            mode: "cors",
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({UserID: userId})
+        }).then(function(response) {
+            return response.json();
+        }).then(function(foodEaten) {
+            thisTemp.setState({
+                foodEaten: foodEaten
+            });
+        });
+
 
         // fetch("http://nutriscan.appspot.com/get-diet-by-userid", {
         //     mode: "cors",
