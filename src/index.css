@@ -441,11 +441,29 @@ article.home-article {
 	transition: 0.3s;
 }
 
+main.primary article {
+	padding: 2em 4em;
+}
 
+main.primary article span.heading {
+	font-size: 3em;
+}
+
+main.primary article span.subheading {
+	font-size: 2em;
+}
+
+main.primary div.content {
+	font-size: 1.5em;
+}
+
+main.primary footer {
+	font-size: 1em;
+}
 
 @media only screen and (max-width: 768px) {
 	header.primary {
-		padding: 1em 2em;
+		padding: 1em 2em 1em 0em;
 	}
 
 	header.primary nav {
@@ -517,6 +535,22 @@ article.home-article {
 	main.primary span.heading {
 		display: block;
 		font-size: 2em;
+	}
+
+	main.primary article {
+		padding: 2em;
+	}
+
+	main.primary article span.heading {
+		font-size: 2em;
+	}
+
+	main.primary div.content {
+		font-size: 1em;
+	}
+
+	main.primary footer {
+		font-size: 0.75em;
 	}
 
 	.result-container {
