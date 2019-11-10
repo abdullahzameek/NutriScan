@@ -17,16 +17,16 @@ app = flask.Flask(__name__)
 CORS(app)
 
 cred = credentials.Certificate(
-    "hackprinceton-a5464-firebase-adminsdk-foe5e-b1f27ade4d.json")
+    "HAHA")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://hackprinceton-a5464.firebaseio.com/'
+    'databaseURL': 'HAHA/'
 })
 global calorieScores, foodName
 calorieScores = 0
 foodName = "Pizza"
 
-account_sid = 'AC865a671d6de9c1828a703cb647cd8649'
-auth_token = 'e773be64236ab31ced3f5bace4f224e2'
+account_sid = 'HAHA'
+auth_token = 'HAHA'
 client = Client(account_sid, auth_token)
 
 
@@ -145,13 +145,11 @@ def setCurrentCaloriesByUserID():
 #     })
 #     return(json.dumps(req))
 
-project_id = 'nutriscan'
+project_id = 'HAHA'
 compute_region = 'us-central1'
-model_id = 'ICN2666645550845132800'
+model_id = 'HAHA'
 # file_path = '/home/abdullahz/Desktop/food41/caesar_salad/70283.jpg'
 score_threshold = '0.5'
-
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./NutriScan-a1424ccd43a6.json"
 
 CALORIES = {
     "Pizza":
