@@ -153,14 +153,15 @@ a.nav-link {
 	background-position: 50% 100%;
     background-repeat: no-repeat;
     background-size: 0% 2px;
-	-webkit-transition: background-size 0.3s;
-	-ms-transition: background-size 0.3s;
-	-moz-transition: background-size 0.3s;
-	-o-transition: background-size 0.3s;
-	transition: background-size 0.3s;
+	-webkit-transition: 0.3s;
+	-ms-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
 }
 
 .links a:hover, .links a.active {
+	color: #F5B7B7;
     background-size: 100% 2px;
 }
 
@@ -288,10 +289,6 @@ main.primary span.subheading {
 	-moz-transition: 0.3s;
 	-o-transition: 0.3s;
 	transition: 0.3s;
-}
-
-.triangle-button:before {
-	content: '▼';
 }
 
 .triangle-button.rotate {
@@ -477,6 +474,36 @@ main.primary footer {
 	height: auto;
 	max-height: 1000em;
 }
+
+.food-data-container {
+	margin: 0.25em 1.5em 0.25em 0em;
+	display: inline-block;
+}
+
+.food-data-container .content span.data-heading {
+	display: block;
+	font-size: 0.6em;
+}
+/*
+.food-data-container .content {
+	width: 0em;
+	height: 0em;
+	max-height: 0em;
+	min-width: 0em;
+	overflow: hidden;
+	-webkit-transition: max-height 3s ease-in-out;
+	-ms-transition: max-height 3s ease-in-out;
+	-moz-transition: max-height 3s ease-in-out;
+	-o-transition: max-height 3s ease-in-out;
+	transition: max-height 3s ease-in-out;
+}*/
+/*
+.food-data-container .content.show {
+	width: auto;
+	height: auto;
+	max-width: 1000em;
+	max-height: 1000em;
+}*/
 
 @media only screen and (max-width: 768px) {
 	header.primary {

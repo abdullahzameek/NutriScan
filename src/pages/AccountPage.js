@@ -1,15 +1,26 @@
 import React from 'react';
 
+import FoodEatenNodeContainer from '../components/FoodEatenNodeContainer';
+
 class AccountPage extends React.Component {
 	constructor(props) {
 		super(props)
         this.state = {
         	showData: false,
             name: "John Smith",
-            cals: 1000,
+            cals: 0,
             calLimit: 2000,
+            carbs: 0,
+            carbLimit: 200,
+            protein: 0,
+            proteinLimit: 200,
+            fat: 0,
+            fatLimit: 44,
+            fiber: 0,
+            fiberLimit: 30,
 			diet: "Paleo",
-            foodEaten: []
+            foodEaten: [],
+            foodEatenNodes: []
 		};
         this.getMacrosFromName = this.getMacrosFromName.bind(this);
 	}
@@ -59,11 +70,23 @@ class AccountPage extends React.Component {
                 "Fiber, total dietary": "1 g"
             }
         }));
+
+        if (!foodJson.hasOwnProperty(food)) {
+        	var macrosObject = new Object();
+	        macrosObject.cals = 0;
+	        macrosObject.carbs = 0;
+	        macrosObject.protein = 0;
+	        macrosObject.fat = 0;
+	        macrosObject.fiber = 0;
+	        return macrosObject;
+        }
+
         var macrosObject = new Object();
-        macrosObject.protein = foodJson[food]["Protein"];
-        macrosObject.fat = foodJson[food]["Total lipid (fat)"];
-        macrosObject.carbs = foodJson[food]["Carbohydrate, by difference"];
-        macrosObject.fiber = foodJson[food]["Fiber, total dietary"];
+        macrosObject.cals = parseFloat(foodJson[food]['Energy'].split(' ')[0]);
+        macrosObject.carbs = parseFloat(foodJson[food]['Carbohydrate, by difference'].split(' ')[0]);
+        macrosObject.protein = parseFloat(foodJson[food]['Protein'].split(' ')[0]);
+        macrosObject.fat = parseFloat(foodJson[food]['Total lipid (fat)'].split(' ')[0]);
+        macrosObject.fiber = parseFloat(foodJson[food]['Fiber, total dietary'].split(' ')[0]);
         return macrosObject;
     }
     
@@ -121,6 +144,19 @@ class AccountPage extends React.Component {
             thisTemp.setState({
                 foodEaten: foodEaten
             });
+
+            for (var i = 0; i < foodEaten.length; i++) {
+            	var foodName = foodEaten[i];
+            	var food = thisTemp.getMacrosFromName(foodName);
+
+            	thisTemp.setState({
+            		foodEatenNodes: thisTemp.state.foodEatenNodes.concat([<FoodEatenNodeContainer foodName = {foodName} cals = {food.cals} carbs = {food.carbs} protein = {food.protein} fat = {food.fat} fiber = {food.fiber} />]),
+            		carbs: Math.round(thisTemp.state.carbs + food.carbs),
+            		protein: Math.round(thisTemp.state.protein + food.protein),
+            		fat: Math.round(thisTemp.state.fat + food.fat),
+            		fiber: Math.round(thisTemp.state.fiber + food.fiber)
+            	})
+            }
         });
 
 
@@ -149,6 +185,22 @@ class AccountPage extends React.Component {
 		var calStyle = {
 			backgroundSize: calPct + '% 100%, 100% 100%'
 		};
+		const carbPct = Math.round(this.state.carbs/this.state.carbLimit * 100);
+		var carbStyle = {
+			backgroundSize: carbPct + '% 100%, 100% 100%'
+		};
+		const proteinPct = Math.round(this.state.protein/this.state.proteinLimit * 100);
+		var proteinStyle = {
+			backgroundSize: proteinPct + '% 100%, 100% 100%'
+		};
+		const fatPct = Math.round(this.state.fat/this.state.fatLimit * 100);
+		var fatStyle = {
+			backgroundSize: fatPct + '% 100%, 100% 100%'
+		};
+		const fiberPct = Math.round(this.state.fiber/this.state.fiberLimit * 100);
+		var fiberStyle = {
+			backgroundSize: fiberPct + '% 100%, 100% 100%'
+		};
 
 		return (
           <main className = "primary">
@@ -168,6 +220,35 @@ class AccountPage extends React.Component {
 				          		<span className = "data-number">{this.state.cals}/{this.state.calLimit} Cal</span>
 				          		<div className = "data-bar" style = {calStyle}></div>
 				          		<span className = "data-number">{calPct}% DV</span>
+				          	</div>
+				          	<div className = "data-point">
+				          		<span className = "data-heading">Carbs Consumed/Carb Limit: </span>
+				          		<span className = "data-number">{this.state.carbs}/{this.state.carbLimit} g</span>
+				          		<div className = "data-bar" style = {carbStyle}></div>
+				          		<span className = "data-number">{carbPct}% DV</span>
+				          	</div>
+				          	<div className = "data-point">
+				          		<span className = "data-heading">Proteins Consumed/Protein Limit: </span>
+				          		<span className = "data-number">{this.state.protein}/{this.state.proteinLimit} g</span>
+				          		<div className = "data-bar" style = {proteinStyle}></div>
+				          		<span className = "data-number">{proteinPct}% DV</span>
+				          	</div>
+				          	<div className = "data-point">
+				          		<span className = "data-heading">Fats Consumed/Fat Limit: </span>
+				          		<span className = "data-number">{this.state.fat}/{this.state.fatLimit} g</span>
+				          		<div className = "data-bar" style = {fatStyle}></div>
+				          		<span className = "data-number">{fatPct}% DV</span>
+				          	</div>
+				          	<div className = "data-point">
+				          		<span className = "data-heading">Fiber Consumed/Fiber Limit: </span>
+				          		<span className = "data-number">{this.state.fiber}/{this.state.fiberLimit} g</span>
+				          		<div className = "data-bar" style = {fiberStyle}></div>
+				          		<span className = "data-number">{fiberPct}% DV</span>
+				          	</div><br />
+
+				          	<div className = "food-list">
+				          		<span className = "subheading">Past Eaten Foods</span>
+				          		{this.state.foodEatenNodes}
 				          	</div>
 	                    </div>
                     </div>

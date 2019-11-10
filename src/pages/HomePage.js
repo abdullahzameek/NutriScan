@@ -93,7 +93,7 @@ class HomePage extends React.Component {
                     	body: JSON.stringify({UserID: userId})
                     });
 
-                    fetch("http://nutriscan.appspot.com/get-calorie-limit-by-userid", {
+                    fetch("http://nutriscan.appspot.com/get-total-calories-by-userid", {
                         mode: "cors",
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
@@ -105,7 +105,7 @@ class HomePage extends React.Component {
                     });
 
                     thisTemp.setState({
-                    	foodDataNodes: thisTemp	.state.foodDataNodes.concat([<FoodDataContainer foodName = {foodName} cals = {cals} carbs = {carbs} protein = {protein} fat = {fat} fiber = {fiber} calLimit = {calLimit} />])
+                    	foodDataNodes: thisTemp.state.foodDataNodes.concat([<FoodDataContainer foodName = {foodName} cals = {cals} carbs = {carbs} protein = {protein} fat = {fat} fiber = {fiber} calLimit = {calLimit} />])
                     });
                 });
               }
