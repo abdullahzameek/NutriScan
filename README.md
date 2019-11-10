@@ -1,4 +1,4 @@
-##About NutriScan
+# About NutriScan
 
 NutriScan is a web application that gives you the nutritional information you need with just the snap of a picture.
 
