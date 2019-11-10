@@ -11,10 +11,11 @@ class FoodDataContainer extends React.Component {
 		this.protein = props.protein;
 		this.fat = props.fat;
 		this.fiber = props.fiber;
-		this.calPct = Math.round(this.cals/2000 * 100);
-		this.carbsPct = Math.round(this.carbs/200 * 100);
-		this.proteinPct = Math.round(this.protein/200 * 100);
-		this.fatPct = Math.round(this.fat/44 * 100);
+        this.calLimit = props.calLimit;
+		this.calPct = Math.round(this.cals/this.calLimit * 100);
+		this.carbsPct = Math.round(this.carbs/(this.calLimit * 0.1) * 100);
+		this.proteinPct = Math.round(this.protein/((this.calLimit * 0.1)) * 100);
+		this.fatPct = Math.round(this.fat/(this.calLimit * (0.2/9)) * 100);
 		this.fiberPct = Math.round(this.fiber/30 * 100);
 	}
 

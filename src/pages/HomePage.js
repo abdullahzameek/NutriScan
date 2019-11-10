@@ -68,7 +68,7 @@ class HomePage extends React.Component {
                 }).then(function(response) {
                 	if (!response.ok) {
 	                    thisTemp.setState({
-	                    	foodDataNodes: thisTemp	.state.foodDataNodes.concat([<FoodDataContainer foodName = {"Unrecognized Item"} cals = {0} carbs = {0} protein = {0} fat = {0} fiber = {0} />])
+	                    	foodDataNodes: thisTemp.state.foodDataNodes.concat([<FoodDataContainer foodName = {"Unrecognized Item"} cals = {0} carbs = {0} protein = {0} fat = {0} fiber = {0} calLimit = {2000} />])
 	                    });
                 	}
                 	return response.json();
@@ -83,17 +83,29 @@ class HomePage extends React.Component {
                     const fiber = parseFloat(nutritionInfo['Fiber, total dietary'].split(' ')[0]);
                     console.log(nutritionInfo);
 
-                    thisTemp.setState({
-                    	foodDataNodes: thisTemp	.state.foodDataNodes.concat([<FoodDataContainer foodName = {foodName} cals = {cals} carbs = {carbs} protein = {protein} fat = {fat} fiber = {fiber} />])
-                    });
-
                     var userId = 'User001';
+                    var calLimit = 2000;
 
                     fetch("http://nutriscan.appspot.com/update-calories-by-userid", {
                     	mode: "cors",
                     	method: "POST",
                     	headers: {"Content-Type": "application/json"},
                     	body: JSON.stringify({UserID: userId})
+                    });
+
+                    fetch("http://nutriscan.appspot.com/get-calorie-limit-by-userid", {
+                        mode: "cors",
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({UserID: userId})
+                    }).then(function(response) {
+                        return response.json();
+                    }).then(function(calorieLimit) {
+                        calLimit = calorieLimit;
+                    });
+
+                    thisTemp.setState({
+                    	foodDataNodes: thisTemp	.state.foodDataNodes.concat([<FoodDataContainer foodName = {foodName} cals = {cals} carbs = {carbs} protein = {protein} fat = {fat} fiber = {fiber} calLimit = {calLimit} />])
                     });
 
                 });
