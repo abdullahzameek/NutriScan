@@ -68,7 +68,31 @@ class AccountPage extends React.Component {
                 "Total lipid (fat)": "3.21 g",
                 "Carbohydrate, by difference" :  "27.24	g",
                 "Fiber, total dietary": "1 g"
-            }
+            },
+            "Dumplings":
+		    {
+		        "Energy": "145 kcal",
+		        "Protein": "9.21 g",
+		        "Total lipid (fat)": "1.97 g",
+		        "Carbohydrate, by difference" :  "23.68	g",
+		        "Fiber, total dietary": "1.3 g"
+		    },
+		    "French Fries":
+		    {
+		        "Energy": "155 kcal",
+		        "Protein": "2.38 g",
+		        "Total lipid (fat)": "4.76 g",
+		        "Carbohydrate, by difference" :  "25 g",
+		        "Fiber, total dietary": "2.4 g"
+		    },
+		     "Hamburger":
+		    {
+		        "Energy": "186 kcal",
+		        "Protein": "9.3 g",
+		        "Total lipid (fat)": "2.33 g",
+		        "Carbohydrate, by difference" :  "44.19 g",
+		        "Fiber, total dietary": "9.3 g"
+		    }
         }));
 
         if (!foodJson.hasOwnProperty(food)) {
@@ -145,12 +169,12 @@ class AccountPage extends React.Component {
                 foodEaten: foodEaten
             });
 
-            for (var i = 0; i < foodEaten.length; i++) {
+            for (var i = foodEaten.length - 1; i >= 0; i--) {
             	var foodName = foodEaten[i];
             	var food = thisTemp.getMacrosFromName(foodName);
 
             	thisTemp.setState({
-            		foodEatenNodes: thisTemp.state.foodEatenNodes.concat([<FoodEatenNodeContainer foodName = {foodName} cals = {food.cals} carbs = {food.carbs} protein = {food.protein} fat = {food.fat} fiber = {food.fiber} />]),
+            		foodEatenNodes: thisTemp.state.foodEatenNodes.concat([<FoodEatenNodeContainer index = {i} foodName = {foodName} cals = {food.cals} carbs = {food.carbs} protein = {food.protein} fat = {food.fat} fiber = {food.fiber} />]),
             		carbs: Math.round(thisTemp.state.carbs + food.carbs),
             		protein: Math.round(thisTemp.state.protein + food.protein),
             		fat: Math.round(thisTemp.state.fat + food.fat),

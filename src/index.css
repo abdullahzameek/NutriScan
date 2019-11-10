@@ -397,7 +397,7 @@ article.home-article {
 
 .data-point {
 	width: 90%;
-	/*margin: 1em auto;*/
+	margin: 1em 0em;
 	display: grid;
 	grid-template-areas: 'heading number-amt' 'bar number-pct';
 	grid-template-columns: 1fr auto;

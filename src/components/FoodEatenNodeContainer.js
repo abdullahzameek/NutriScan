@@ -3,6 +3,7 @@ import React from 'react';
 class FoodEatenNodeContainer extends React.Component {
 	constructor(props) {
 		super(props);
+		this.timeStamp = props.index;
 		this.foodName = props.foodName;
 		this.cals = props.cals;
 		this.carbs = props.carbs;
@@ -25,7 +26,7 @@ class FoodEatenNodeContainer extends React.Component {
 		return (
           <div className = "food-data-container">
 	          <header>
-	          	<span className = "data-heading" onClick = {this.showInfo}>•{this.foodName}</span>
+	          	<span className = "data-heading" onClick = {this.showInfo}><u>{this.foodName} - {this.timeStamp + ':' + Math.floor(Math.random() * 50 + 10)}</u></span>
 	          </header>
 
 	          <div className = {this.state.showInfo ? "content show" : "content"}>
