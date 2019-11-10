@@ -1,0 +1,24 @@
+{
+  "Users" : [ null, {
+    "UserID" : "User001",
+    "Name" : "Johnathan Harris Neves",
+    "Calorie Limit" : 2500,
+    "Minimum Calories": 500,
+    "Current Calories": 0,
+    "Diet" : "Keto"
+  }, {
+    "UserID" : "User002",
+    "Name" : "Ryan Young Choi",
+    "Calorie Limit" : 3500,
+    "Current Calories": 0,
+    "Minimum Calories": 500,
+    "Diet" : "High Protein"
+  }, {
+    "UserID" : "User003",
+    "Name" : "Alex Roberts Edwards",
+    "Calorie Limit" : 1500,
+    "Minimum Calories": 500,
+    "Current Calories": 0,
+    "Diet" : "Low-fat"
+  } ]
+}

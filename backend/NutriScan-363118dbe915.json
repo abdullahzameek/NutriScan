@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "nutriscan",
+  "private_key_id": "363118dbe915f14e5ea711c6dc81d78860366ed3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaqmbmTRgGHIvt\n/8nkwbd9H/FVS6uDQRspE8VQb4t+wbBp+pRjKMNAtLpVpAxUJXHxOB59Bqjl7EdS\ng6sDW38Q+TJq8K3jpWrIrNk1llgO9ciVosmh6hcuUKBDiKmndoANFVasnOwBUmGp\nPEedrTMDIDtRMeSaBoeYXIS28a6pcW+gqdVr1m/dcbtwPj9p+SYfpFboOebWJJfM\nMdNv2zvfR2Vz7bJ+q12JdkKNT2C5ILPIDsCxxgun8iCoTJt+L0166uK/4MMlTYxu\nbT3gM3JUsDmsFsp+XNYL/hRL9NnkYR1hYrd25Bb8t/NwuiKmh0a9llJJmz0K5q1v\nuQSvbVlXAgMBAAECggEAA8yv3nSCZJQK8/vWr+H6af6A5UGIox7UVfwAWuuCl8iW\nVuQrBQyZT1uhQD1ZeC+7Ttu8FAI33/4f+mz1pI1436ffjzT+cJs9tlRYubJJ04RC\nOzrWjT28+AxPA5m14UFOAARILtFkEtw9PfUXJU599FO0YVhCb249ooaTVBM34T24\nYPWKG7OTC48bzxTD/ZWyyTV9O0sCVcVdiDrNGCgSJOwuk48ndQieQD+2Fdm2ZD+m\nOdUC3/6WaSMT5xNB0y5ZUU7LVnVqulWcE+dezCBy8jzggOWKo3xMuPUveZOfL/UP\n+oQ6S2IwNMgohLsUy2oGCFni9N8Q4NBLr0oReOhDkQKBgQDQGzpYwgfFQ9GOm73u\navnY6IZFGTI3YuK8D6ggILe2BJlHWA8H+keMED6M3pcKm1S1kth7Ra0ku/KSlm0W\nII9Z+n2Gs7J3fj3n5MUADGAhW3+HA9GtTwUgR6Zs0Ib+SNaixh6GQeoA2UQDjXoe\nW2kq5gFdr8rGv79lLJHCUkNz6wKBgQC+Qqp3siBG4cpA1a6TZ6w9znKXP+La5NXY\nTX+hqoqC1YpDChqb29TTj81wvlW2zGEQvCuqEoDT4ooLBj2CbxZ9ktqnN6Doyk6L\nLJE7rmt5QHP/pv2iljq84Z066zHzNRnpqOh5xozBZJZkxl/kuz7ztoV7orcPmD5q\n/d2tYQWRRQKBgBECuME6kwIH6iA7EMplSij10MvjJFyso5X1vatqoTmqpJDVXN0t\nEx4a0dIX+8atLb5t0244ItAG4OwkiaQuYylatVoGZEcqNYs4AvZfDJiNbx4tLL16\n4RNjZ/IrFW3BrHG/ug0FZEhPeiTEMsA6fp04EdKDpRKb59wwSXXV3ZejAoGAPsGc\nmuitTtQRM3uIHuT2YlijYZJYEJ2kj7lYXQn0sB0hguVlS32iYLoxKHwPp8EYTz3S\nJUH/LmSt5d8EEO71eywiZT+rGr4IVE26BfaNSqxg1rXNOYDWFRFSHGoRysf8KR9m\ntywvp2a3WLw6SyccJ6VPuC0+tq0gAYiFQzgabwUCgYEAunp1/hPOhnJ/j0tipEJx\n0J8VZYbF8zdSETpy28rBIi0kG/le6qHQQesMwvhcXT1iz54u7rvtL8npdeFneV8p\nApQvdxRHMlu7uLYu8nPufKDEvE65LfG48LgxPtHEw520c+cy8Exq+GBPTYfNJXQK\ntDYybqzo4soG91ungWyygP4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "test-721@nutriscan.iam.gserviceaccount.com",
+  "client_id": "110481025249747460407",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-721%40nutriscan.iam.gserviceaccount.com"
+}
