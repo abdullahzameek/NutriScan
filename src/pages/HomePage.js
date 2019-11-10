@@ -107,7 +107,6 @@ class HomePage extends React.Component {
                     thisTemp.setState({
                     	foodDataNodes: thisTemp	.state.foodDataNodes.concat([<FoodDataContainer foodName = {foodName} cals = {cals} carbs = {carbs} protein = {protein} fat = {fat} fiber = {fiber} calLimit = {calLimit} />])
                     });
-
                 });
               }
             };

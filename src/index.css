@@ -400,7 +400,7 @@ article.home-article {
 
 .data-point {
 	width: 90%;
-	margin: 1em auto;
+	/*margin: 1em auto;*/
 	display: grid;
 	grid-template-areas: 'heading number-amt' 'bar number-pct';
 	grid-template-columns: 1fr auto;
@@ -459,6 +459,23 @@ main.primary div.content {
 
 main.primary footer {
 	font-size: 1em;
+}
+
+.analytics-container {
+	height: 0em;
+	max-height: 0em;
+	overflow: hidden;
+	padding: 0em;
+	-webkit-transition: max-height 4s ease-in;
+	-ms-transition: max-height 4s ease-in;
+	-moz-transition: max-height 4s ease-in;
+	-o-transition: max-height 4s ease-in;
+	transition: max-height 4s ease-in;
+}
+
+.analytics-container.show {
+	height: auto;
+	max-height: 1000em;
 }
 
 @media only screen and (max-width: 768px) {
